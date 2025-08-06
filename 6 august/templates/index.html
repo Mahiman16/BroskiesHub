@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+  <h1>👥 User Dashboard</h1>
+
+  <div class="top-bar">
+    <h3>User List</h3>
+    <a href="/create" class="action-btn">➕ Add New User</a>
+  </div>
+
+  {% if users %}
+    <ul class="user-list">
+      {% for user in users.values() %}
+        <li class="user-card">
+          <div class="user-info">
+            <strong>{{ user.username }}</strong><br>
+            {{ user.email }}<br>
+            Age: {{ user.age }}
+          </div>
+          <div class="user-actions">
+            <a href="/update/{{ user.username }}" class="edit-btn">✏️</a>
+            <a href="/delete/{{ user.username }}" class="delete-btn">🗑️</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="empty-msg">No users available.</div>
+  {% endif %}
+</div>
+{% endblock %}

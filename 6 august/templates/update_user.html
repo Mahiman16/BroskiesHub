@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Update User - {{ user.username }}{% endblock %}
+{% block content %}
+  <div class="form-container">
+    <h2 class="text-center mb-4">✏️ Update User</h2>
+    <form method="POST" action="/update/{{ user.username }}">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" value="{{ user.username }}" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" value="{{ user.email }}" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Age</label>
+        <input type="number" class="form-control" name="age" value="{{ user.age }}" required>
+      </div>
+      <button type="submit" class="btn btn-warning">💾 Update</button>
+      <a href="/" class="btn btn-secondary ms-2">🔙 Back</a>
+    </form>
+  </div>
+{% endblock %}
