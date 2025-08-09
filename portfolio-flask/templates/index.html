@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Home — Mahiman{% endblock %}
+{% block content %}
+  <section class="hero">
+    <h1>Hi, I'm Mahiman indoriya</h1>
+    <p>AI & Data Science. Building creative multimodal projects — text-to-image,Hospital biometric systems, and games.</p>
+    <a class="cta" href="{{ url_for('projects') }}">See Projects</a>
+  </section>
+
+  <section class="projects-preview">
+    <h2>Featured Projects</h2>
+    <div class="cards">
+      {% for p in projects %}
+      <article class="card">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.desc }}</p>
+        <a href="{{ p.link }}">View</a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Projects — Mahiman{% endblock %}
+{% block content %}
+  <h2>Projects</h2>
+  <div class="cards">
+    {% for p in projects %}
+    <article class="card">
+      <h3>{{ p.title }}</h3>
+      <p>{{ p.desc }}</p>
+      <a href="{{ p.link }}">Read more</a>
+    </article>
+    {% endfor %}
+  </div>
+{% endblock %}
